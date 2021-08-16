@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - lts/*
+
+services:
+  - docker
+
+before_install:
+  - docker build -t kaiwen097/reactapp -f Dockerfile .
+
+script:
+ - docker run kaiwen097/reactapp npm run test -- -- coverage
